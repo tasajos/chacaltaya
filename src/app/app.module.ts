@@ -13,6 +13,11 @@ import { BuscarcontactoComponent } from './Components/principal/agenda/buscarcon
 import { CasosComponent } from './Components/principal/casos/casos.component';
 import { SeguimientoComponent } from './Components/principal/seguimiento/seguimiento.component';
 import { NavbaragendaComponent } from './Components/principal/agenda/navbaragenda/navbaragenda.component';
+import { CcasosComponent } from './Components/principal/casos/ccasos/ccasos.component';
+import { RcasosComponent } from './Components/principal/casos/rcasos/rcasos.component';
+import { NavbarcasosComponent } from './Components/principal/casos/navbarcasos/navbarcasos.component';
+import { PersonalComponent } from './Components/principal/personal/personal.component';
+import { NavbarpersonalComponent } from './Components/principal/personal/navbarpersonal/navbarpersonal.component';
 
 
 @NgModule({
@@ -26,7 +31,12 @@ import { NavbaragendaComponent } from './Components/principal/agenda/navbaragend
     BuscarcontactoComponent,
     CasosComponent,
     SeguimientoComponent,
-    NavbaragendaComponent
+    NavbaragendaComponent,
+    CcasosComponent,
+    RcasosComponent,
+    NavbarcasosComponent,
+    PersonalComponent,
+    NavbarpersonalComponent
     ],
   imports: [
     BrowserModule,
