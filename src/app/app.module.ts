@@ -18,6 +18,8 @@ import { RcasosComponent } from './Components/principal/casos/rcasos/rcasos.comp
 import { NavbarcasosComponent } from './Components/principal/casos/navbarcasos/navbarcasos.component';
 import { PersonalComponent } from './Components/principal/personal/personal.component';
 import { NavbarpersonalComponent } from './Components/principal/personal/navbarpersonal/navbarpersonal.component';
+import { CrearpersonalComponent } from './Components/principal/personal/crearpersonal/crearpersonal.component';
+import { ListadopersonalComponent } from './Components/principal/personal/listadopersonal/listadopersonal.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { NavbarpersonalComponent } from './Components/principal/personal/navbarp
     RcasosComponent,
     NavbarcasosComponent,
     PersonalComponent,
-    NavbarpersonalComponent
+    NavbarpersonalComponent,
+    CrearpersonalComponent,
+    ListadopersonalComponent
     ],
   imports: [
     BrowserModule,

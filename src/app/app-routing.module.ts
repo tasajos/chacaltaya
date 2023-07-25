@@ -9,6 +9,8 @@ import { BuscarcontactoComponent } from './Components/principal/agenda/buscarcon
 import { CcasosComponent } from './Components/principal/casos/ccasos/ccasos.component';
 import { RcasosComponent } from './Components/principal/casos/rcasos/rcasos.component';
 import { PersonalComponent } from './Components/principal/personal/personal.component';
+import { CrearpersonalComponent } from './Components/principal/personal/crearpersonal/crearpersonal.component';
+import { ListadopersonalComponent } from './Components/principal/personal/listadopersonal/listadopersonal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'principal', pathMatch: 'full' },
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'ccasos', component: CcasosComponent },
   { path: 'rcasos', component: RcasosComponent },
   { path: 'personal', component: PersonalComponent},
+  { path: 'cpersonal', component: CrearpersonalComponent},
+  { path: 'lpersonal', component: ListadopersonalComponent},
   { path: '**', redirectTo: 'principal', pathMatch: 'full' }
 ];
 
