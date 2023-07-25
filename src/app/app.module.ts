@@ -12,6 +12,7 @@ import { CrearcontactoComponent } from './Components/principal/agenda/crearconta
 import { BuscarcontactoComponent } from './Components/principal/agenda/buscarcontacto/buscarcontacto.component';
 import { CasosComponent } from './Components/principal/casos/casos.component';
 import { SeguimientoComponent } from './Components/principal/seguimiento/seguimiento.component';
+import { NavbaragendaComponent } from './Components/principal/agenda/navbaragenda/navbaragenda.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SeguimientoComponent } from './Components/principal/seguimiento/seguimi
     CrearcontactoComponent,
     BuscarcontactoComponent,
     CasosComponent,
-    SeguimientoComponent
+    SeguimientoComponent,
+    NavbaragendaComponent
     ],
   imports: [
     BrowserModule,
