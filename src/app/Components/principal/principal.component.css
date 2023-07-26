@@ -7,3 +7,13 @@
     background-color: #eee8e8;
 
   }
+.card-img-top{
+
+  width: 200px; 
+  height: 150px;
+  text-align: center;
+  display: block;
+  margin: 10px auto 0;
+}
+
+  
