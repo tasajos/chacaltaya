@@ -92,17 +92,27 @@
     <div class="row g-2">
         <div class="col-md">
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInputGrid" placeholder="Nombre" value="">
-            <label for="floatingInputGrid">Nombre</label>
+            <input type="date" class="form-control" id="floatingInputGrid" placeholder="Nombre" value="">
+            <label for="floatingInputGrid">Fecha</label>
           </div>
         </div>
         <div class="col-md">
           <div class="form-floating">
             <select class="form-select" id="floatingSelectGrid">
-              <option selected>Tipo</option>
-              <option value="Persona Natural">Persona Natural</option>
-              <option value="Persona Juridica">Persona Juridica</option>
-              <option value="Estado">Estado</option>
+              <option selected>Tipo de caso</option>
+              <option value="Administrativo">Administrativo</option>
+              <option value="Civil">Civil</option>
+              <option value="Constitucional">Constitucional</option>
+              <option value="Penal">Penal</option>
+              <option value="Procesal">Procesal</option>
+              <option value="Tributario">Tributario</option>
+              <option value="Mercantil">Mercantil</option>
+              <option value="Laboral">Laboral</option>
+              <option value="Internacional">Internacional</option>
+              <option value="Ambiental">Ambiental</option>
+              <option value="Familiar">Familiar</option>
+              <option value="Comercial">Comercial</option>
+              <option value="OTRO">OTRO</option>
             </select>
             <label for="floatingSelectGrid">Seleccione:</label>
           </div>
@@ -112,67 +122,40 @@
       <div class="row g-2">
         <div class="col-md">
           <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInputGrid" placeholder="nombre@institucion.org" value="">
-            <label for="floatingInputGrid">Email</label>
+            <input type="date" class="form-control" id="floatingInputGrid" placeholder="nfcaso" value="">
+            <label for="floatingInputGrid">Fecha del suceso</label>
           </div>
         </div>
         <div class="col-md">
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInputGrid" placeholder="Telefono" value="">
-            <label for="floatingInputGrid">Telefono</label>
+            <input type="text" class="form-control" id="floatingInputGrid" placeholder="ubicacion" value="">
+            <label for="floatingInputGrid">Ubicacion</label>
         </div>
       </div>
-
-      <br>
-      <div class="row g-2">
-        <div class="col-md">
-          <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInputGrid" placeholder="CI" value="">
-            <label for="floatingInputGrid">Carnet de Identidad</label>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="form-floating">
-            <select class="form-select" id="floatingSelectGrid">
-                <option selected>Extension</option>
-                <option value="LP">LP</option>
-                <option value="CBBA">CBBA</option>
-                <option value="SC">SC</option>
-                <option value="PTSI">PTSI</option>
-                <option value="OR">OR</option>
-                <option value="SCRE">SCRE</option>
-                <option value="TJA">TJA</option>
-                <option value="PNDO">PNDO</option>
-                <option value="BNI">BNI</option>
-                <option value="OTRO">OTRO</option>
-              </select>
-              <label for="floatingSelectGrid">Seleccione:</label>
-        </div>
-      </div>
-<br>
-<div class="row g-2">
-    <div class="col-md">
-      <div class="form-floating">
-        <input type="date" class="form-control" id="floatingInputGrid" placeholder="nombre@institucion.org" value="">
-        <label for="floatingInputGrid">Fecha de Nacimiento</label>
-      </div>
-    </div>
-    <div class="col-md">
-      <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInputGrid" placeholder="fnacimiento" value="">
-        <label for="floatingInputGrid">Estado Civil</label>
-    </div>
-  </div>
-
-
+        
       <br>
       <div class="row g-2">
         <div class="col-md">
           <div class="form-floating">
             <textarea class="form-control" placeholder="Direccion" id="floatingTextarea2" style="height: 100px"></textarea>
-  <label for="floatingTextarea2">Direccion</label>
+  <label for="floatingTextarea2">Nombre de las partes involucradas</label>
           </div>
         </div>
+        <div class="col-md">
+            <div class="form-floating">
+              <textarea class="form-control" placeholder="Direccion" id="floatingTextarea2" style="height: 100px"></textarea>
+    <label for="floatingTextarea2">Descripcion del caso</label>
+            </div>
+          </div>
+          <div class="row g-2">
+            <div class="col-md">
+              <div class="form-floating">
+                <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Evidencias (documentos,imagenes,pdf)</label>
+                    <input class="form-control" type="file" id="formFileMultiple" multiple>
+                  </div>
+              </div>
+            </div>
 
         
 </div>
@@ -182,6 +165,7 @@
     </div>
     <br>
     <br>
-    </div>
-    <br>
+</div>
+    
+      <br>
     <button type="button" class="btn btn-primary btn-lg">REGISTRAR</button>
