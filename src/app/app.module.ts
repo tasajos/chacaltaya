@@ -20,6 +20,7 @@ import { PersonalComponent } from './Components/principal/personal/personal.comp
 import { NavbarpersonalComponent } from './Components/principal/personal/navbarpersonal/navbarpersonal.component';
 import { CrearpersonalComponent } from './Components/principal/personal/crearpersonal/crearpersonal.component';
 import { ListadopersonalComponent } from './Components/principal/personal/listadopersonal/listadopersonal.component';
+import { BannerComponent } from './Components/banner/banner.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ListadopersonalComponent } from './Components/principal/personal/listad
     PersonalComponent,
     NavbarpersonalComponent,
     CrearpersonalComponent,
-    ListadopersonalComponent
+    ListadopersonalComponent,
+    BannerComponent
     ],
   imports: [
     BrowserModule,
