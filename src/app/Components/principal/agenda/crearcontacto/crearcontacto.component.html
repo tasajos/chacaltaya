@@ -1,6 +1,7 @@
 <br>
 <br>
-<div class="container-fluid text-center">
+<div class="container-fluid text-center form-container">
+    <form class="example-form" [formGroup]="formulario" (ngSubmit)="registrarusuario()" >
     <div class="row">
       <div class="col-2 p-3 custom-container-bg" style="margin-left: 15px;">
         <app-sidebar></app-sidebar>
@@ -10,21 +11,21 @@
     <div class="row g-2">
         <div class="col-md">
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInputGrid" placeholder="Nombre" value="">
+            <input type="text" class="form-control" id="floatingInputGrid" placeholder="Nombre" formControlName="nombre">
             <label for="floatingInputGrid">Nombre</label>
           </div>
         </div>
         <div class="col-md">
           <div class="form-floating">
-            <select class="form-select" id="floatingSelectGrid">
-              <option selected>Tipo</option>
+            <select class="form-select" id="floatingSelectGrid" formControlName="tipo">
+              
               <option value="Persona Natural">Persona Natural</option>
               <option value="Persona Juridica">Persona Juridica</option>
               <option value="Estado">Estado</option>
               <option value="Cliente Persona Natural">Cliente Persona Natural</option>
               <option value="Cliente Persona Juridica">Cliente Persona Juridica</option>
             </select>
-            <label for="floatingSelectGrid">Seleccione:</label>
+            <label for="floatingSelectGrid">Seleccione Tipo:</label>
           </div>
         </div>
       </div>
@@ -32,13 +33,13 @@
       <div class="row g-2">
         <div class="col-md">
           <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInputGrid" placeholder="nombre@institucion.org" value="">
+            <input type="email" class="form-control" id="floatingInputGrid" placeholder="nombre@institucion.org" formControlName="email">
             <label for="floatingInputGrid">Email</label>
           </div>
         </div>
         <div class="col-md">
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInputGrid" placeholder="Telefono" value="">
+            <input type="text" class="form-control" id="floatingInputGrid" placeholder="Telefono" formControlName="telefono">
             <label for="floatingInputGrid">Telefono</label>
         </div>
       </div>
@@ -47,14 +48,14 @@
       <div class="row g-2">
         <div class="col-md">
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInputGrid" placeholder="CI" value="">
+            <input type="text" class="form-control" id="floatingInputGrid" placeholder="CI" formControlName="ci">
             <label for="floatingInputGrid">Carnet de Identidad</label>
           </div>
         </div>
         <div class="col-md">
           <div class="form-floating">
-            <select class="form-select" id="floatingSelectGrid">
-                <option selected>Extension</option>
+            <select class="form-select" id="floatingSelectGrid" formControlName="extension">
+                
                 <option value="LP">LP</option>
                 <option value="CBBA">CBBA</option>
                 <option value="SC">SC</option>
@@ -66,20 +67,20 @@
                 <option value="BNI">BNI</option>
                 <option value="OTRO">OTRO</option>
               </select>
-              <label for="floatingSelectGrid">Seleccione:</label>
+              <label for="floatingSelectGrid">Seleccione Extension:</label>
         </div>
       </div>
 <br>
 <div class="row g-2">
     <div class="col-md">
       <div class="form-floating">
-        <input type="date" class="form-control" id="floatingInputGrid" placeholder="nombre@institucion.org" value="">
+        <input type="date" class="form-control" id="floatingInputGrid" placeholder="nombre@institucion.org" formControlName="fechanacimiento">
         <label for="floatingInputGrid">Fecha de Nacimiento</label>
       </div>
     </div>
     <div class="col-md">
       <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInputGrid" placeholder="fnacimiento" value="">
+        <input type="text" class="form-control" id="floatingInputGrid" placeholder="fnacimiento" formControlName="estadocivil">
         <label for="floatingInputGrid">Estado Civil</label>
     </div>
   </div>
@@ -89,7 +90,7 @@
       <div class="row g-2">
         <div class="col-md">
           <div class="form-floating">
-            <textarea class="form-control" placeholder="Direccion" id="floatingTextarea2" style="height: 100px"></textarea>
+            <textarea class="form-control" placeholder="Direccion" id="floatingTextarea2" formControlName="direccion" style="height: 100px"></textarea>
   <label for="floatingTextarea2">Direccion</label>
           </div>
         </div>
@@ -104,4 +105,7 @@
     <br>
     </div>
     <br>
-    <button type="button" class="btn btn-primary btn-lg">REGISTRAR</button>
+    <button type="submit" class="btn btn-primary btn-lg">REGISTRAR</button>
+
+   
+    

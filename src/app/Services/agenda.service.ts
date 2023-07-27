@@ -14,8 +14,8 @@ export class AgendaService {
  //entorno para llamar
 
   private Myappurl: string = environment.endpoint;
-  private Myapiurl: string = 'api/ReporteSD';
-  private Myapiurput: string = 'api/ReporteSD/';
+  private Myapiurl: string = 'api/Agenda';
+  private Myapiurput: string = 'api/Agenda';
 
 
   //constructor
