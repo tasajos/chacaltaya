@@ -1,4 +1,5 @@
 using ChacaltayaBeE.Models;
+using ChacaltayaBeE.Models.agenda;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -35,6 +36,23 @@ namespace ChacaltayaBeE.Controllers
 
       }
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Post(cliente Agenda)
+    {
+      try
+      {
+        Agenda.FechaCreacion = DateTime.Now;
+        _context.Add(Agenda);
+        await _context.SaveChangesAsync();
+        return CreatedAtAction("Get", new { Id = Agenda.id }, Agenda);
+      }
+      catch (Exception ex)
+      {
+        return BadRequest(ex.Message);
+      }
+    }
+
 
   }
 }
