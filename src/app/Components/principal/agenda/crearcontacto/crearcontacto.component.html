@@ -107,5 +107,8 @@
     <br>
     <button type="submit" class="btn btn-primary btn-lg">REGISTRAR</button>
 
-   
+    <div *ngIf="showAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+        ¡Registro exitoso! Mensaje de éxito.
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeAlert()"></button>
+      </div>
     

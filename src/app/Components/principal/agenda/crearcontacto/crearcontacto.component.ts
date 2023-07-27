@@ -14,8 +14,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CrearcontactoComponent implements OnInit {
   formulario: FormGroup;
-  
+  showAlert: boolean = false;
  
+  closeAlert(): void {
+    this.showAlert = false;
+  }
+
 
   constructor(
     private fb: FormBuilder,
@@ -58,15 +62,16 @@ export class CrearcontactoComponent implements OnInit {
   
       // Enviamos objeto al backend
       this._rregistro.addregistro(rcactivo).subscribe(() => {
+        this.showSuccessAlert(); 
         //this.mensajeExito('registrado');
-     
         setTimeout(() => {
           location.reload();
         }, 2000); // Wait for 2 seconds before reloading the page
       });
    // });
-    
- 
+}
+showSuccessAlert(): void {
+  this.showAlert = true;
 }
 
  //
