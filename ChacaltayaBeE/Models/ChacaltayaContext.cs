@@ -1,4 +1,5 @@
 using ChacaltayaBeE.Models.agenda;
+using ChacaltayaBeE.Models.Personal;
 using Microsoft.EntityFrameworkCore;
 
 namespace ChacaltayaBeE.Models
@@ -18,7 +19,7 @@ namespace ChacaltayaBeE.Models
     ////////////
     ///personal////
     ////////////
-    //public DbSet<cusuario> Usuarios { get; set; } //<clase> Nombre de la tabla
+    public DbSet<personal> Personal { get; set; } //<clase> Nombre de la tabla
 
 
   }
