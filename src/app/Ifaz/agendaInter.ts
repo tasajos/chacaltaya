@@ -7,7 +7,7 @@ export interface registrarcontactoInter {
     telefono:string,
     ci:string,
     extension:string,
-    fechanacimiento:Date,
-    estadocivil:string,
+    FechaNacimiento:Date,
+    EstadoCivil:string,
     direccion:string,
     }

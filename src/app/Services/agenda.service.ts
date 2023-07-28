@@ -22,10 +22,14 @@ export class AgendaService {
   constructor(private http: HttpClient) { }
 
   //funcion obtener resultados
+ 
   getregistros(): Observable<registrarcontactoInter[]> {
      
-    return this.http.get<registrarcontactoInter[]>(this.Myappurl+this.Myapiurl);
+   return this.http.get<registrarcontactoInter[]>(this.Myappurl+this.Myapiurl);
   }
+
+  
+
 
 
 

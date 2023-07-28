@@ -37,8 +37,8 @@ export class CrearcontactoComponent implements OnInit {
       telefono: ['', Validators.required],
       ci: ['', Validators.required],
       extension: [''],
-      fechanacimiento: [''],
-      estadocivil: [''],
+      FechaNacimiento: [''],
+      EstadoCivil: [''],
       direccion: [''],
  
          });
@@ -54,8 +54,9 @@ export class CrearcontactoComponent implements OnInit {
         telefono: this.formulario.value.telefono,
         ci: this.formulario.value.ci,
         extension: this.formulario.value.extension,
-        fechanacimiento: this.formulario.value.fechanacimiento,
-        estadocivil: this.formulario.value.estadocivil,
+       // FechaNacimiento: new Date(this.formulario.value.FechaNacimiento).toISOString(), // Convertir a formato ISO
+        FechaNacimiento: this.formulario.value.FechaNacimiento,
+        EstadoCivil: this.formulario.value.EstadoCivil,
         direccion: this.formulario.value.direccion,
 
       };
