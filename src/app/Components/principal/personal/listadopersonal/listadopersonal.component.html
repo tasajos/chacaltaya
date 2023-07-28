@@ -7,42 +7,69 @@
       </div>
       <div class="col-9 p-3 customm2-container-bg"><app-navbarpersonal></app-navbarpersonal>
     <p></p>
+    <div class="d-flex justify-content-center mb-3">
+      <!--<button class="btn btn-primary me-2" (click)="setSortBy('tipo')">Ordenar por Tipo</button>
+      <button class="btn btn-primary me-2" (click)="setSortBy('nombre')">Ordenar por Nombre</button>
+      <button class="btn btn-primary me-2" (click)="setSortBy('id')">Ordenar por #</button>-->
+    </div>
+    <div class="d-flex justify-content-center mb-3">
+      <input type="text" [(ngModel)]="searchTerm" (input)="applyFilter()" class="form-control" placeholder="Buscar">
+      <button class="btn btn-primary ms-2" (click)="clearFilter()">Limpiar</button>
+    </div>
     <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Telefono</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Direccion</th>
-          </tr>
-        </thead>
-        <tbody class="table-group-divider">
-          <tr>
-            <th scope="row">1</th>
-            <td>Carlos</td>
-            <td>Azcarraga</td>
-            <td>Abogado</td>
-            <td>Mariano Mendez 2135</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-            <td>@mdo</td>
+      <thead>
+        <tr>
+          <th scope="col">
+              <div style="display: flex; align-items: center;">
+                <span style="margin-right: 5px;">#</span>
+                <img src="../../../../../assets/img/orden-ascendente.png" (click)="setSortBy('id')" >
+              </div>
+            </th>
+          
+          <th scope="col">
+              <div style="display: flex; align-items: center;">
+                <span style="margin-right: 5px;">   Nombre</span>
+                <img src="../../../../../assets/img/orden-ascendente.png" (click)="setSortBy('nombrepersonal')" >
+              </div>
+            </th>
+            <th scope="col">
+              <div style="display: flex; align-items: center;">
+                <span style="margin-right: 5px;">Tipo</span>
+                <img src="../../../../../assets/img/orden-ascendente.png" (click)="setSortBy('tipopersonal')" >
+              </div>
+            </th>
+          <th scope="col">E-mail</th>
+          <th scope="col">telefono</th>
+          <th scope="col">Carnet de Identidad</th>
+         <!-- <th scope="col">Fecha de Nacimiento</th>-->
+         <!-- <th scope="col">Estado</th>-->
+          <th scope="col">Direccion</th>
+          <th scope="col">Especialidad</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Fecha de Incorporacion</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+          <tr *ngFor="let registro of registros">
+           <th scope="row">{{ registro.id }}</th>
+            <td>{{ registro.nombrepersonal }}</td>
+            <td>{{ registro.tipopersonal }}</td>
+            <td>{{ registro.email }}</td>
+            <td>{{ registro.telefono }}</td>
+            <td>{{ registro.ci }}</td>
+            <!--<td>{{ formatDate(registro.FechaNacimiento) }}</td>-->
+            <!--<td>{{ registro.FechaNacimiento }}</td>-->
+            <!--<td>{{ registro.EstadoCivil }}</td>-->
+            <td>{{ registro.direccion }}</td>
+            <td>{{ registro.especialidad }}</td>
+            <td>{{ registro.nombretitulo }}</td>
+            <td>{{ registro.fechainco }}</td>
           </tr>
         </tbody>
       </table>
 
 
 </div>
-        
-      </div>
+      
     </div>
+  </div>
