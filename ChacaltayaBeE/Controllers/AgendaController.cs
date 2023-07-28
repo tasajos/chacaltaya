@@ -37,6 +37,20 @@ namespace ChacaltayaBeE.Controllers
       }
     }
 
+    [HttpGet("tipos")]
+    public async Task<IActionResult> GetTipos()
+    {
+      try
+      {
+        var tipos = await _context.Agenda.Select(a => a.Tipo).Distinct().ToListAsync();
+        return Ok(tipos);
+      }
+      catch (Exception ex)
+      {
+        return BadRequest(ex.Message);
+      }
+    }
+
     [HttpPost]
     public async Task<IActionResult> Post(cliente Agenda)
     {

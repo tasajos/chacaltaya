@@ -15,16 +15,15 @@
       <br>
       <div class="row g-2">
         <div class="col-md">
-            <div class="form-floating">
-            <select class="form-select" id="floatingSelectGrid">
-              <option selected>Tipo</option>
-              <option value="Persona Natural">Persona Natural</option>
-              <option value="Persona Juridica">Persona Juridica</option>
-              <option value="Estado">Estado</option>
+          <div class="form-floating">
+            <select class="form-select" id="tipoSelect" [(ngModel)]="selectedTipo">
+              <option value="">Tipo</option>
+              <option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo }}</option>
             </select>
-            <label for="floatingSelectGrid">Seleccione:</label>
+            <label for="tipoSelect">Seleccione:</label>
           </div>
         </div>
+          
         <div class="col-md">
             <div class="form-floating">
             <select class="form-select" id="floatingSelectGrid">

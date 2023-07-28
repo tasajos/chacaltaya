@@ -11,3 +11,10 @@ export interface registrarcontactoInter {
     EstadoCivil:string,
     direccion:string,
     }
+
+    export interface tipocontactoInter {
+        // columna db 
+        id?: number,
+        tipos:string,
+        
+        }
