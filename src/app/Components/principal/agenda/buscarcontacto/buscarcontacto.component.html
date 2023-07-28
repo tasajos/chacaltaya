@@ -12,6 +12,10 @@
         <button class="btn btn-primary me-2" (click)="setSortBy('nombre')">Ordenar por Nombre</button>
         <button class="btn btn-primary me-2" (click)="setSortBy('id')">Ordenar por #</button>-->
       </div>
+      <div class="d-flex justify-content-center mb-3">
+        <input type="text" [(ngModel)]="searchTerm" (input)="applyFilter()" class="form-control" placeholder="Buscar">
+        <button class="btn btn-primary ms-2" (click)="clearFilter()">Limpiar</button>
+      </div>
     <table class="table">
         <thead>
           <tr>
@@ -28,9 +32,6 @@
                   <img src="../../../../../assets/img/orden-ascendente.png" (click)="setSortBy('nombre')" >
                 </div>
               </th>
-
-
-
               <th scope="col">
                 <div style="display: flex; align-items: center;">
                   <span style="margin-right: 5px;">Tipo</span>
