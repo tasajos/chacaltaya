@@ -1,0 +1,19 @@
+1rapartecliente
+clientetipo
+cliente
+
+2da parte representacion legal
+especialidad
+abogado
+
+3ra parte caso
+
+fecharegistro
+tipocaso
+fechadelsuceso
+ubicacion
+nombrepartesinv
+descripcioncaso
+
+4ta parte evidencias
+Archivos

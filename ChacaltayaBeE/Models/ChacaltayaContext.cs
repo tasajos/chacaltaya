@@ -1,4 +1,5 @@
 using ChacaltayaBeE.Models.agenda;
+using ChacaltayaBeE.Models.Casos;
 using ChacaltayaBeE.Models.Personal;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,12 @@ namespace ChacaltayaBeE.Models
     ///personal////
     ////////////
     public DbSet<personal> Personal { get; set; } //<clase> Nombre de la tabla
+
+
+    ////////////
+    //Casos//
+    ////////////
+    public DbSet<casoinit> Casos { get; set; } //<clase> Nombre de la tabla
 
 
   }
