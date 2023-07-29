@@ -17,6 +17,9 @@ export class AgendaService {
   private Myapiurl: string = 'api/Agenda';
   private Myapiurput: string = 'api/Agenda';
   private Myapigtipo: string = 'api/Agenda/tipos';
+  private Myapigtipodtipo: string = 'api/Agenda/tipos/{tipo}';
+
+  
 
 
   //constructor
@@ -35,6 +38,13 @@ export class AgendaService {
      
     return this.http.get<tipocontactoInter[]>(this.Myappurl+this.Myapigtipo);
    }
+
+    //funcion obtener tipo x tipo
+ 
+    getregistrostipoxtipo(): Observable<registrarcontactoInter[]> {
+     
+      return this.http.get<registrarcontactoInter[]>(this.Myappurl+this.Myapigtipodtipo);
+     }
  
 
   

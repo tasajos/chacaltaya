@@ -51,6 +51,24 @@ namespace ChacaltayaBeE.Controllers
       }
     }
 
+    [HttpGet("tipos/{tipo}")]
+    public async Task<IActionResult> GetNombresPorTipo(string tipo)
+    {
+      try
+      {
+        var nombresPorTipo = await _context.Agenda
+            .Where(a => a.Tipo == tipo)
+            .Select(a => a.Nombre)
+            .ToListAsync();
+
+        return Ok(nombresPorTipo);
+      }
+      catch (Exception ex)
+      {
+        return BadRequest(ex.Message);
+      }
+    }
+
     [HttpPost]
     public async Task<IActionResult> Post(cliente Agenda)
     {
