@@ -15,26 +15,25 @@
       <br>
       <div class="row g-2">
         <div class="col-md">
-          <div class="form-floating">
-            <select class="form-select" id="tipoSelect" [(ngModel)]="selectedTipo">
-              <option value="">Tipo</option>
-              <option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo }}</option>
-            </select>
-            <label for="tipoSelect">Seleccione:</label>
+            <div class="form-floating">
+              <select class="form-select" id="tipoSelect" [(ngModel)]="selectedTipo" (change)="getNombresPorTipo()">
+                <option value="">Tipo</option>
+                <option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo }}</option>
+              </select>
+              <label for="tipoSelect">Seleccione el tipo de contacto:</label>
+            </div>
           </div>
-        </div>
+     
           
         <div class="col-md">
             <div class="form-floating">
-            <select class="form-select" id="floatingSelectGrid">
-              <option selected>Cliente</option>
-              <option value="Persona Natural">Persona Natural</option>
-              <option value="Persona Juridica">Persona Juridica</option>
-              <option value="Estado">Estado</option>
-            </select>
-            <label for="floatingSelectGrid">Seleccione:</label>
+              <select class="form-select" id="nombreSelect" [(ngModel)]="selectedNombre">
+                <option value="">Nombre</option>
+                <option *ngFor="let nombre of nombresPorTipo" [value]="nombre">{{ nombre }}</option>
+              </select>
+              <label for="nombreSelect">Seleccione el nombre de contacto:</label>
+            </div>
           </div>
-        </div>
 
 
       </div>

@@ -41,11 +41,14 @@ export class AgendaService {
 
     //funcion obtener tipo x tipo
  
-    getregistrostipoxtipo(): Observable<registrarcontactoInter[]> {
+    //getregistrostipoxtipo(): Observable<registrarcontactoInter[]> {
      
-      return this.http.get<registrarcontactoInter[]>(this.Myappurl+this.Myapigtipodtipo);
-     }
+      //return this.http.get<registrarcontactoInter[]>(this.Myappurl+this.Myapigtipodtipo);
+     //}
  
+     getregistrostipoxtipo(tipo: string): Observable<string[]> {
+      return this.http.get<string[]>(`${this.Myappurl}api/Agenda/tipos/${tipo}`);
+    }
 
   
   addregistro  (regd: registrarcontactoInter): Observable<registrarcontactoInter>{

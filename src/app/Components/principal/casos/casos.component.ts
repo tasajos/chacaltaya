@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AgendaService } from '../../../Services/agenda.service'; // Reemplaza 'ruta-a-tu-servicio' con la ruta real a tu servicio
-import { tipocontactoInter } from '../../../Ifaz/agendaInter'; // Reemplaza 'ruta-a-tu-modelo' con la ruta real a tu interfaz de tipocontacto
+import { AgendaService } from '../../../Services/agenda.service';
+import { tipocontactoInter, registrarcontactoInter } from '../../../Ifaz/agendaInter';
 
 @Component({
   selector: 'app-casos',
@@ -9,7 +9,10 @@ import { tipocontactoInter } from '../../../Ifaz/agendaInter'; // Reemplaza 'rut
 })
 export class CasosComponent implements OnInit {
   tipos: tipocontactoInter[] = [];
-  selectedTipo: string = ''; // Agrega esta línea para definir la variable selectedTipo
+  nombresPorTipo: string[] = []; // Agrega esta variable para almacenar los nombres por tipo
+  selectedTipo: string = '';
+  selectedNombre: string = '';
+
   constructor(private lectipo: AgendaService) { }
 
   ngOnInit() {
@@ -20,11 +23,27 @@ export class CasosComponent implements OnInit {
     this.lectipo.getregistrostipo().subscribe(
       (data) => {
         this.tipos = data;
-        console.log('Tipos de contacto:', this.tipos); // Agrega este mensaje para ver los datos obtenidos
+        console.log('Tipos de contacto:', this.tipos);
       },
       (error) => {
         console.error(error);
       }
     );
+  }
+
+  getNombresPorTipo() {
+    if (this.selectedTipo) {
+      this.lectipo.getregistrostipoxtipo(this.selectedTipo).subscribe(
+        (data) => {
+          this.nombresPorTipo = data;
+          console.log('Nombres por tipo:', this.nombresPorTipo);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    } else {
+      this.nombresPorTipo = [];
+    }
   }
 }
