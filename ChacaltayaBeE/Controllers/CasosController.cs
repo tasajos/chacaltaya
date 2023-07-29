@@ -38,22 +38,23 @@ namespace ChacaltayaBeE.Controllers
       }
     }
 
-    [HttpPost]
-    public async Task<IActionResult> Post(casoinit Casos)
+       [HttpPost]
+     public async Task<IActionResult> Post(casoinit Casos)
+   {
+    try
     {
-      try
-      {
-        Casos.FechaCreacion = DateTime.Now;
-        _context.Add(Casos);
-        await _context.SaveChangesAsync();
-        return CreatedAtAction("Get", new { Id = Casos.id }, Casos);
-      }
-      catch (Exception ex)
-      {
-        return BadRequest(ex.Message);
-      }
+    Casos.FechaCreacion = DateTime.Now;
+    _context.Add(Casos);
+    await _context.SaveChangesAsync();
+    return CreatedAtAction("Get", new { Id = Casos.id }, Casos);
+    }
+     catch (Exception ex)
+    {
+    return BadRequest(ex.Message);
+    }
     }
 
+   
   }
 }
 

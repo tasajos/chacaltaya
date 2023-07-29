@@ -39,4 +39,9 @@ export class CasosService {
     return this.http.post<registrarcasosInter>(`${this.Myappurl}${this.Myapiurputcasos}`, regd);
   }
 
+  addregistro3(formData: FormData) {
+    const headers = new HttpHeaders({ 'Content-Type': 'multipart/form-data; boundary=boundary123' });
+    return this.http.post<any>(`${this.Myappurl}${this.Myapiurputcasos}`, formData,{ headers });
+  }
+
 }

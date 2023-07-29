@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+
 namespace ChacaltayaBeE.Models.Casos
 {
   public class casoinit
@@ -23,9 +26,16 @@ namespace ChacaltayaBeE.Models.Casos
 
     public string descripcioncaso { get; set; }
 
+
+    //public List<string> archivos { get; set; }
+
+    
+
+
+
     //public string archivos { get; set; }
 
-   // public IFormFile archivos { get; set; } // Use IFormFile for file uploads
+    // public IFormFile archivos { get; set; } // Use IFormFile for file uploads
 
 
 
