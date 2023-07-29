@@ -28,6 +28,16 @@ export class PersonalService {
    return this.http.get<registrarpersonalInter[]>(this.Myappurl+this.Myapiurl);
   }
 
+
+   //funcion obtener abogado por especialidad
+  getAbogadosPorEspecialidad(especialidad: string): Observable<string[]> {
+    return this.http.get<string[]>(`${this.Myappurl}api/Personal/abogados-por-especialidad/${especialidad}`);
+  }
+//funcion obtener especialidades
+  getEspecialidades(): Observable<string[]> {
+    return this.http.get<string[]>(`${this.Myappurl}api/Personal/especialidades`);
+  }
+
   addregistro  (regd: registrarpersonalInter): Observable<registrarpersonalInter>{
 
     return this.http.post<registrarpersonalInter>(`${this.Myappurl}${this.Myapiurl}`,regd);

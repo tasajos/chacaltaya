@@ -40,6 +40,57 @@ namespace ChacaltayaBeE.Controllers
       }
     }
 
+    [HttpGet("especialidades")]
+    public async Task<IActionResult> GetEspecialidades()
+    {
+      try
+      {
+        var especialidades = await _context.Personal.Select(p => p.especialidad).Distinct().ToListAsync();
+        return Ok(especialidades);
+      }
+      catch (Exception ex)
+      {
+        return BadRequest(ex.Message);
+      }
+    }
+
+    [HttpGet("tipospersonal/{especialidad}")]
+    public async Task<IActionResult> GetTiposPersonalPorEspecialidad(string especialidad)
+    {
+      try
+      {
+        var tiposPersonal = await _context.Personal
+            .Where(p => p.especialidad == especialidad && p.tipopersonal == "Abogado")
+            .Select(p => p.tipopersonal)
+            .Distinct()
+            .ToListAsync();
+
+        return Ok(tiposPersonal);
+      }
+      catch (Exception ex)
+      {
+        return BadRequest(ex.Message);
+      }
+    }
+
+    [HttpGet("abogados-por-especialidad/{especialidad}")]
+    public async Task<IActionResult> GetAbogadosPorEspecialidad(string especialidad)
+    {
+      try
+      {
+        var abogadosPorEspecialidad = await _context.Personal
+            .Where(p => p.especialidad == especialidad && p.tipopersonal == "Abogado")
+            .Select(p => p.nombrepersonal)
+            .ToListAsync();
+
+        return Ok(abogadosPorEspecialidad);
+      }
+      catch (Exception ex)
+      {
+        return BadRequest(ex.Message);
+      }
+    }
+
     [HttpPost]
     public async Task<IActionResult> Post(personal Personal)
     {

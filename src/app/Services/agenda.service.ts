@@ -50,6 +50,8 @@ export class AgendaService {
       return this.http.get<string[]>(`${this.Myappurl}api/Agenda/tipos/${tipo}`);
     }
 
+    
+
   
   addregistro  (regd: registrarcontactoInter): Observable<registrarcontactoInter>{
 

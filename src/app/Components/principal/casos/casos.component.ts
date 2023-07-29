@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AgendaService } from '../../../Services/agenda.service';
+import { PersonalService } from '../../../Services/personal.service';
 import { tipocontactoInter, registrarcontactoInter } from '../../../Ifaz/agendaInter';
+import { registrarpersonalInter } from '../../../Ifaz/personal';
 
 @Component({
   selector: 'app-casos',
@@ -13,10 +15,16 @@ export class CasosComponent implements OnInit {
   selectedTipo: string = '';
   selectedNombre: string = '';
 
-  constructor(private lectipo: AgendaService) { }
+  especialidades: string[] = [];
+  abogadosPorEspecialidad: string[] = [];
+  selectedEspecialidad: string = '';
+  selectedAbogado: string = '';
+
+  constructor(private lectipo: AgendaService, private lecesp:PersonalService) { }
 
   ngOnInit() {
     this.getTipos();
+    this.getEspecialidades();
   }
 
   getTipos() {
@@ -44,6 +52,33 @@ export class CasosComponent implements OnInit {
       );
     } else {
       this.nombresPorTipo = [];
+    }
+  }
+  getEspecialidades() {
+    this.lecesp.getEspecialidades().subscribe(
+      (data) => {
+        this.especialidades = data;
+        console.log('Especialidades:', this.especialidades);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  getAbogadosPorEspecialidad() {
+    if (this.selectedEspecialidad) {
+      this.lecesp.getAbogadosPorEspecialidad(this.selectedEspecialidad).subscribe(
+        (data) => {
+          this.abogadosPorEspecialidad = data;
+          console.log('Abogados por especialidad:', this.abogadosPorEspecialidad);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    } else {
+      this.abogadosPorEspecialidad = [];
     }
   }
 }
