@@ -16,6 +16,7 @@ export class CasosService {
   private Myappurl: string = environment.endpoint;
   private Myapiurl: string = 'api/Personal';
   private Myapiurput: string = 'api/Personal';
+  private Myapiurputcasos: string = 'api/Casos';
 
 
   //constructor
@@ -30,8 +31,12 @@ export class CasosService {
 
   addregistro  (regd: registrarcasosInter): Observable<registrarcasosInter>{
 
-    return this.http.post<registrarcasosInter>(`${this.Myappurl}${this.Myapiurl}`,regd);
+    return this.http.post<registrarcasosInter>(`${this.Myappurl}${this.Myapiurputcasos}`,regd);
   
+  }
+
+  addregistro2(regd: FormData): Observable<registrarcasosInter> {
+    return this.http.post<registrarcasosInter>(`${this.Myappurl}${this.Myapiurputcasos}`, regd);
   }
 
 }

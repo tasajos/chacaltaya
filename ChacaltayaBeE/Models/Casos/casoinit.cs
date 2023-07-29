@@ -22,8 +22,13 @@ namespace ChacaltayaBeE.Models.Casos
     public string nombrepartesinv { get; set; }
 
     public string descripcioncaso { get; set; }
-    public string archivos { get; set; }
-    
+
+    //public string archivos { get; set; }
+
+   // public IFormFile archivos { get; set; } // Use IFormFile for file uploads
+
+
+
     public DateTime FechaCreacion { get; set; }
   }
 }

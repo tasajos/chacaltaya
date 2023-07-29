@@ -1,6 +1,7 @@
 <br>
 <br>
 <div class="container-fluid text-center">
+  <form class="example-form" [formGroup]="formulario" (ngSubmit)="registrarusuario()" >
     <div class="row">
       <div class="col-2 p-3 custom-container-bg" style="margin-left: 15px;">
         <app-sidebar></app-sidebar>
@@ -16,7 +17,7 @@
       <div class="row g-2">
         <div class="col-md">
             <div class="form-floating">
-              <select class="form-select" id="tipoSelect" [(ngModel)]="selectedTipo" (change)="getNombresPorTipo()">
+              <select class="form-select" id="tipoSelect" [(ngModel)]="selectedTipo" (change)="getNombresPorTipo()" formControlName="clientetipo">
                 <option value="">Tipo</option>
                 <option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo }}</option>
               </select>
@@ -27,7 +28,7 @@
           
         <div class="col-md">
             <div class="form-floating">
-              <select class="form-select" id="nombreSelect" [(ngModel)]="selectedNombre">
+              <select class="form-select" id="nombreSelect" [(ngModel)]="selectedNombre" formControlName="cliente">
                 <option value="">Nombre</option>
                 <option *ngFor="let nombre of nombresPorTipo" [value]="nombre">{{ nombre }}</option>
               </select>
@@ -47,7 +48,7 @@
       <div class="row g-2">
         <div class="col-md">
             <div class="form-floating">
-              <select class="form-select" id="especialidadSelect" [(ngModel)]="selectedEspecialidad" (change)="getAbogadosPorEspecialidad()">
+              <select class="form-select" id="especialidadSelect" [(ngModel)]="selectedEspecialidad" (change)="getAbogadosPorEspecialidad()" formControlName="especialidad">
                 <option value="">Especialidad</option>
                 <option *ngFor="let especialidad of especialidades" [value]="especialidad">{{ especialidad }}</option>
               </select>
@@ -57,7 +58,7 @@
 
         <div class="col-md">
             <div class="form-floating">
-            <select class="form-select" id="abogadoSelect" [(ngModel)]="selectedAbogado">
+            <select class="form-select" id="abogadoSelect" [(ngModel)]="selectedAbogado" formControlName="abogado">
             <option value="">Abogado</option>
             <option *ngFor="let abogado of abogadosPorEspecialidad" [value]="abogado">{{ abogado }}</option>
             </select>
@@ -77,13 +78,13 @@
     <div class="row g-2">
         <div class="col-md">
           <div class="form-floating">
-            <input type="date" class="form-control" id="floatingInputGrid" placeholder="Nombre" value="">
+            <input type="date" class="form-control" id="floatingInputGrid" placeholder="Nombre" formControlName="fecharegistro">
             <label for="floatingInputGrid">Fecha</label>
           </div>
         </div>
         <div class="col-md">
           <div class="form-floating">
-            <select class="form-select" id="floatingSelectGrid">
+            <select class="form-select" id="floatingSelectGrid" formControlName="tipocaso">
               <option selected>Tipo de caso</option>
               <option value="Administrativo">Administrativo</option>
               <option value="Civil">Civil</option>
@@ -107,13 +108,13 @@
       <div class="row g-2">
         <div class="col-md">
           <div class="form-floating">
-            <input type="date" class="form-control" id="floatingInputGrid" placeholder="nfcaso" value="">
+            <input type="date" class="form-control" id="floatingInputGrid" placeholder="nfcaso" formControlName="fechasuceso">
             <label for="floatingInputGrid">Fecha del suceso</label>
           </div>
         </div>
         <div class="col-md">
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInputGrid" placeholder="ubicacion" value="">
+            <input type="text" class="form-control" id="floatingInputGrid" placeholder="ubicacion" formControlName="ubicacion">
             <label for="floatingInputGrid">Ubicacion</label>
         </div>
       </div>
@@ -122,13 +123,13 @@
       <div class="row g-2">
         <div class="col-md">
           <div class="form-floating">
-            <textarea class="form-control" placeholder="Direccion" id="floatingTextarea2" style="height: 100px"></textarea>
+            <textarea class="form-control" placeholder="Direccion" id="floatingTextarea2" style="height: 100px" formControlName="nombrepartesinv"></textarea>
   <label for="floatingTextarea2">Nombre de las partes involucradas</label>
           </div>
         </div>
         <div class="col-md">
             <div class="form-floating">
-              <textarea class="form-control" placeholder="Direccion" id="floatingTextarea2" style="height: 100px"></textarea>
+              <textarea class="form-control" placeholder="Direccion" id="floatingTextarea2" style="height: 100px" formControlName="descripcioncaso"></textarea>
     <label for="floatingTextarea2">Descripcion del caso</label>
             </div>
             <br>
@@ -141,7 +142,8 @@
             </div>
           </div>
           <br>
-          <div class="row g-2">
+
+         <div class="row g-2">
             <div class="col-md">
               <div class="form-floating">
                 <div class="mb-3">
@@ -160,6 +162,9 @@
     <br>
     <br>
 </div>
-    
+<div *ngIf="showAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+  ¡Registro exitoso! Mensaje de éxito.
+  <button type="button" class="btn-close" aria-label="Close" (click)="closeAlert()"></button>
+</div>
       <br>
-    <button type="button" class="btn btn-primary btn-lg">REGISTRAR</button>
+    <button type="submit" class="btn btn-primary btn-lg">REGISTRAR</button>

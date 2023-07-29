@@ -7,8 +7,9 @@ export interface registrarcasosInter {
     abogado:string,
     fecharegistro:string,
     tipocaso:string,
-    fechadelsuceso:string,
+    fechasuceso:string,
     ubicacion:string,
     nombrepartesinv:string,
     descripcioncaso:string,
+    //archivos?: File[],
     }
