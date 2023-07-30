@@ -1,0 +1,43 @@
+
+<!--<input type="file" (change)="uploadFile($event)">-->
+
+<!--
+<div class="row g-2">
+    <div class="col-md">
+      <div class="form-floating">
+        <div class="mb-3">
+            <label for="formFileMultiple" class="form-label">Evidencias (documentos,imagenes,pdf)</label>
+            <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" #fileInput>
+            <button class="btn btn-primary" type="button" id="inputGroupFileAddon04" (click)="uploadFile(fileInput)">Subir Archivo</button>
+          </div>
+      </div>
+    </div>
+<br>
+<br>-->
+
+<!--<div class="input-group">
+    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" #fileInput>
+    <button class="btn btn-primary" type="button" id="inputGroupFileAddon04" (click)="uploadFile(fileInput)">Subir Archivo</button>
+  </div>-->
+
+
+  <!-- FUNCIONA
+  <div class="input-group">
+    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" #fileInput>
+    <button class="btn btn-primary" type="button" id="inputGroupFileAddon04" (click)="uploadFile(fileInput)">Subir Archivo</button>
+  </div>
+  
+  -->
+
+  <!-- Resto de tu plantilla HTML -->
+<div class="input-group">
+    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" #fileInput>
+    <button class="btn btn-primary" type="button" id="inputGroupFileAddon04" (click)="uploadFile(fileInput)">Subir Archivo</button>
+  </div>
+  
+  <!-- Agregar un elemento para mostrar el mensaje de éxito -->
+  <div *ngIf="archivoCargado" class="alert alert-success mt-3">
+    Archivo cargado con éxito.
+  </div>
+  
+

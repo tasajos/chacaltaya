@@ -1,0 +1,6 @@
+realtime database
+
+https://chacaltayas-e5013-default-rtdb.firebaseio.com/
+
+storage
+gs://chacaltayas-e5013.appspot.com/

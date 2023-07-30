@@ -25,11 +25,12 @@ namespace ChacaltayaBeE.Models.Casos
     public string nombrepartesinv { get; set; }
 
     public string descripcioncaso { get; set; }
+    public string ruta { get; set; }
 
 
     //public List<string> archivos { get; set; }
 
-    
+
 
 
 

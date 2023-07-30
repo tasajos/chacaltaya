@@ -11,5 +11,6 @@ export interface registrarcasosInter {
     ubicacion:string,
     nombrepartesinv:string,
     descripcioncaso:string,
-    //archivos?: File[],
+    ruta:string,
+ 
     }

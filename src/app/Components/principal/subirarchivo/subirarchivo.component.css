@@ -1,0 +1,10 @@
+/* Ajustar el posicionamiento del mensaje emergente */
+/* Estilos para el mensaje emergente */
+.toast-container {
+    z-index: 9999;
+  }
+  
+  #successToast {
+    background-color: #4caf50;
+  }
+  

@@ -8,6 +8,10 @@ import { CasosService } from '../../../Services/casos.service';
 import { tipocontactoInter, registrarcontactoInter } from '../../../Ifaz/agendaInter';
 import { registrarpersonalInter } from '../../../Ifaz/personal';
 import { registrarcasosInter } from '../../../Ifaz/casos';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { finalize } from 'rxjs/operators';
+
+
 
 
 @Component({
@@ -18,6 +22,8 @@ import { registrarcasosInter } from '../../../Ifaz/casos';
 export class CasosComponent implements OnInit {
   formulario: FormGroup;
   showAlert: boolean = false;
+  archivoCargado = false;
+  uploadedFileUrl: string = '';
   tipos: tipocontactoInter[] = [];
   nombresPorTipo: string[] = []; // Agrega esta variable para almacenar los nombres por tipo
   selectedTipo: string = '';
@@ -36,7 +42,9 @@ export class CasosComponent implements OnInit {
   private lectipo: AgendaService, private lecesp:PersonalService,
   private fb: FormBuilder, private _rregistro: CasosService,
   private router: Router, private http: HttpClient,
-  private route: ActivatedRoute)
+  private route: ActivatedRoute,
+  private storage: AngularFireStorage
+  )
   {
 
     this.formulario = this.fb.group({
@@ -50,6 +58,7 @@ export class CasosComponent implements OnInit {
       ubicacion: [''],
       nombrepartesinv: [''],
       descripcioncaso: [''],
+      ruta: [''],
  
          });
 
@@ -74,11 +83,14 @@ export class CasosComponent implements OnInit {
      ubicacion: this.formulario.value.ubicacion,
      nombrepartesinv: this.formulario.value.nombrepartesinv,
      descripcioncaso: this.formulario.value.descripcioncaso,
+     ruta: this.formulario.value.ruta,
+
+     
      
 
     };
 
-    
+    console.log(this.formulario.value.ruta);
 
 
      
@@ -160,6 +172,45 @@ this.showAlert = true;
       );
     } else {
       this.abogadosPorEspecialidad = [];
+      
+    }
+  }
+  uploadFile(fileInput: any) {
+    const file = fileInput.files[0];
+    if (file) {
+      const filePath = `ruta_del_archivo/${file.name}`;
+      const fileRef = this.storage.ref(filePath);
+      const task = this.storage.upload(filePath, file);
+
+      // Opcional: Muestra el progreso de la carga (porcentaje)
+      task.percentageChanges().subscribe((percentage) => {
+        console.log(`Cargando... ${percentage}%`);
+      });
+
+      // Finaliza la carga y obtén la URL del archivo
+      task.snapshotChanges().pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe((downloadURL) => {
+            console.log('Archivo cargado:', downloadURL);
+            // Establece la variable uploadedFileUrl con la URL descargada
+
+            const rutaControl = this.formulario.get('ruta');
+        if (rutaControl) {
+            this.uploadedFileUrl = downloadURL;
+            this.formulario.get('ruta')!.setValue(downloadURL); // Asigna la URL al campo 'ruta' en el formulario
+             // Muestra el mensaje de éxito
+             this.archivoCargado = true;
+             // Después de 1 segundo, oculta el mensaje
+            setTimeout(() => {
+              this.archivoCargado = false;
+            }, 1000);
+            // Aquí puedes realizar acciones con la URL del archivo, por ejemplo, guardarla en la base de datos, mostrarla en la interfaz, etc.
+          }
+        });
+      })
+      ).subscribe();
+    } else {
+      console.log('No se seleccionó ningún archivo.');
     }
   }
 }
