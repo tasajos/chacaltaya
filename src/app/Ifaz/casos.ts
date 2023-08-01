@@ -12,5 +12,6 @@ export interface registrarcasosInter {
     nombrepartesinv:string,
     descripcioncaso:string,
     ruta:string,
+    codigocaso?:string,
  
     }

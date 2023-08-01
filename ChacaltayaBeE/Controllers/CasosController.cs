@@ -37,24 +37,32 @@ namespace ChacaltayaBeE.Controllers
 
       }
     }
-
-       [HttpPost]
-     public async Task<IActionResult> Post(casoinit Casos)
-   {
-    try
+    [HttpPost]
+    public async Task<IActionResult> Post(casoinit Casos)
     {
-    Casos.FechaCreacion = DateTime.Now;
-    _context.Add(Casos);
-    await _context.SaveChangesAsync();
-    return CreatedAtAction("Get", new { Id = Casos.id }, Casos);
-    }
-     catch (Exception ex)
-    {
-    return BadRequest(ex.Message);
-    }
+      try
+      {
+        // Obtener el último código de caso registrado en la base de datos
+        int ultimoCodigo = await _context.Casos.MaxAsync(c => c.codigocaso);
+
+        // Incrementar el último código en 1 para obtener el nuevo código de caso
+        int nuevoCodigo = ultimoCodigo + 1;
+
+        // Asignar el nuevo código de caso al objeto casoinit
+        Casos.codigocaso = nuevoCodigo;
+
+        Casos.FechaCreacion = DateTime.Now;
+        _context.Add(Casos);
+        await _context.SaveChangesAsync();
+        return CreatedAtAction("Get", new { Id = Casos.id }, Casos);
+      }
+      catch (Exception ex)
+      {
+        return BadRequest(ex.Message);
+      }
     }
 
-   
+
   }
 }
 

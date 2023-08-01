@@ -4,6 +4,7 @@ using ChacaltayaBeE.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChacaltayaBeE.Migrations
 {
     [DbContext(typeof(ChacaltayaContext))]
-    partial class ChacaltayaContextModelSnapshot : ModelSnapshot
+    [Migration("20230731223304_CasosXIII")]
+    partial class CasosXIII
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,8 +48,9 @@ namespace ChacaltayaBeE.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("codigocaso")
-                        .HasColumnType("int");
+                    b.Property<string>("codigocaso")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("descripcioncaso")
                         .IsRequired()

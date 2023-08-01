@@ -26,7 +26,7 @@ export class CasosService {
  
   getregistros(): Observable<registrarcasosInter[]> {
      
-   return this.http.get<registrarcasosInter[]>(this.Myappurl+this.Myapiurl);
+   return this.http.get<registrarcasosInter[]>(this.Myappurl+this.Myapiurputcasos);
   }
 
   addregistro  (regd: registrarcasosInter): Observable<registrarcasosInter>{

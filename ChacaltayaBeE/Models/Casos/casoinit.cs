@@ -27,18 +27,7 @@ namespace ChacaltayaBeE.Models.Casos
     public string descripcioncaso { get; set; }
     public string ruta { get; set; }
 
-
-    //public List<string> archivos { get; set; }
-
-
-
-
-
-    //public string archivos { get; set; }
-
-    // public IFormFile archivos { get; set; } // Use IFormFile for file uploads
-
-
+    public int codigocaso { get; set; }
 
     public DateTime FechaCreacion { get; set; }
   }
