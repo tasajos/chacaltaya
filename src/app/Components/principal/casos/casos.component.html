@@ -186,5 +186,10 @@
   <button type="button" class="btn-close" aria-label="Close" (click)="closeAlert()"></button>
 </div>
       <br>
+
+      <div *ngIf="showAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+        ¡Registro exitoso! Código del caso: {{ codigocaso }}
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeAlert()"></button>
+      </div>
     <button type="submit" class="btn btn-primary btn-lg">REGISTRAR</button>
   </div></div>

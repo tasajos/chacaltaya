@@ -33,6 +33,7 @@ export class CasosComponent implements OnInit {
   selectedEspecialidad: string = '';
   selectedAbogado: string = '';
   archivos: File[] = [];
+  codigocaso: string = '';
 
   closeAlert(): void {
     this.showAlert = false;
@@ -96,12 +97,15 @@ export class CasosComponent implements OnInit {
      
    
     // Enviamos objeto al backend
-    this._rregistro.addregistro(rcactivo).subscribe(() => {
+    this._rregistro.addregistro(rcactivo).subscribe((response) => {
       this.showSuccessAlert(); 
+      this.codigocaso = response.codigocaso ?? ''; 
       //this.mensajeExito('registrado');
       setTimeout(() => {
-       location.reload();
-      }, 2000); // Wait for 2 seconds before reloading the page
+        location.reload();
+       this.codigocaso = '';
+      }, 4000); // Wait for 4 seconds before reloading the page
+     
     });
   
  
