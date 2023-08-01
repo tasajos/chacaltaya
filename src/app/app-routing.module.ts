@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'personal', component: PersonalComponent},
   { path: 'cpersonal', component: CrearpersonalComponent},
   { path: 'lpersonal', component: ListadopersonalComponent},
+  { path: 'casos', component: CasosComponent},
   { path: '**', redirectTo: 'principal', pathMatch: 'full' }
 ];
 

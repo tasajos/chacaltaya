@@ -17,6 +17,7 @@ export class CasosService {
   private Myapiurl: string = 'api/Personal';
   private Myapiurput: string = 'api/Personal';
   private Myapiurputcasos: string = 'api/Casos';
+  private Myapiurgetcasos: string = 'api/Casos';
 
 
   //constructor
@@ -26,7 +27,7 @@ export class CasosService {
  
   getregistros(): Observable<registrarcasosInter[]> {
      
-   return this.http.get<registrarcasosInter[]>(this.Myappurl+this.Myapiurputcasos);
+   return this.http.get<registrarcasosInter[]>(this.Myappurl+this.Myapiurgetcasos);
   }
 
   addregistro  (regd: registrarcasosInter): Observable<registrarcasosInter>{
